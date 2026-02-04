@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { heart } from "../assets/pixel-art/heart";
 import { palette } from "../assets/pixel-art/palette";
-import { drawPixelArt } from "./drawPixelArt";
 import { getCanvasSize } from "./getCanvasSize";
+import { animatePixelArt } from "./animatePixelArt";
 
 const PIXEL_SIZE = 20;
 
@@ -23,7 +23,19 @@ export default function PixelCanvas() {
     canvas.height = height;
 
     ctx.clearRect(0, 0, width, height);
-    drawPixelArt(ctx, heart, palette, PIXEL_SIZE);
+
+    const cleanup = animatePixelArt(
+      ctx,
+      heart,
+      palette,
+      PIXEL_SIZE,
+      120,
+      () => {
+        console.log("Animation complete");
+      }
+    );
+
+    return cleanup;
   }, []);
 
   return <canvas ref={canvasRef} />;
