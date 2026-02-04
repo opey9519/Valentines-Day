@@ -1,10 +1,17 @@
 import PixelCanvas from "./canvas/PixelCanvas";
+import "./styles/globals.css";
 
 function App() {
   return (
-    <div style={{ display: "flex", justifyContent: "center", marginTop: 50 }}>
+    <main
+      style={{
+        minHeight: "100vh",
+        display: "grid",
+        placeItems: "center",
+      }}
+    >
       <PixelCanvas />
-    </div>
+    </main>
   );
 }
 
