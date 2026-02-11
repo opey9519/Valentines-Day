@@ -1,9 +1,16 @@
-* {
-  box-sizing: border-box;
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', monospace;
+  background-color: #f9e1ea;
 }
 
-body {
-  margin: 0;
-  background-color: #fff0f3;
-  font-family: system-ui, sans-serif;
+button {
+  user-select: none;
+  outline: none;
+}
+
+.App canvas {
+  image-rendering: pixelated; /* preserves pixel art crispness */
+  display: block;
 }

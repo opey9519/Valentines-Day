@@ -1,42 +1,32 @@
 import { useEffect, useRef } from "react";
-import { heart } from "../assets/pixel-art/heart";
-import { palette } from "../assets/pixel-art/palette";
-import { getCanvasSize } from "./getCanvasSize";
-import { animatePixelArt } from "./animatePixelArt";
+import type { Scene } from "../types/pixel";
 
-const PIXEL_SIZE = 20;
+interface Props {
+  scene: React.MutableRefObject<Scene>;
+}
 
-export default function PixelCanvas() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+export default function PixelCanvas({ scene }: Props) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
+    const ctx = canvasRef.current!.getContext("2d")!;
     ctx.imageSmoothingEnabled = false;
 
-    const { width, height } = getCanvasSize(heart, PIXEL_SIZE);
-    canvas.width = width;
-    canvas.height = height;
+    let last = performance.now();
 
-    ctx.clearRect(0, 0, width, height);
+    function loop(now: number) {
+      const delta = now - last; // compute delta in milliseconds
+      last = now;
 
-    const cleanup = animatePixelArt(
-      ctx,
-      heart,
-      palette,
-      PIXEL_SIZE,
-      120,
-      () => {
-        console.log("Animation complete");
-      }
-    );
+      scene.current.update(delta); // ✅ pass delta as required by Scene type
+      ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+      scene.current.draw(ctx);
 
-    return cleanup;
-  }, []);
+      requestAnimationFrame(loop);
+    }
 
-  return <canvas ref={canvasRef} />;
+    requestAnimationFrame(loop);
+  }, [scene]);
+
+  return <canvas ref={canvasRef} width={800} height={600} />;
 }
