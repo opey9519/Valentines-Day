@@ -55,7 +55,7 @@ export default function SceneManager() {
   const handleNo = () => alert("You can’t say no! ❤️");
 
   return (
-    <div style={{ position: "relative", width: 800, height: 600 }}>
+    <div style={{ position: "relative", width: 800, height: 300 }}>
       <PixelCanvas scene={sceneRef} />
 
       {sceneIndex === 1 && (

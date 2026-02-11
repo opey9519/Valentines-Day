@@ -28,5 +28,5 @@ export default function PixelCanvas({ scene }: Props) {
     requestAnimationFrame(loop);
   }, [scene]);
 
-  return <canvas ref={canvasRef} width={800} height={600} />;
+  return <canvas ref={canvasRef} width={800} height={300} />;
 }

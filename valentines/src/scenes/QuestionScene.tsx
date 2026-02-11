@@ -9,8 +9,8 @@ export class QuestionScene implements Scene {
 
   draw(ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "#ff4d6d";
-    ctx.font = "32px 'Press Start 2P'";
+    ctx.font = "48px 'Press Start 2P'";
     ctx.textAlign = "center";
-    ctx.fillText("Will you be my Valentine?", ctx.canvas.width / 2, ctx.canvas.height / 2);
+    ctx.fillText("Will you be my Valentine?", ctx.canvas.width / 2, ctx.canvas.height / 6);
   }
 }

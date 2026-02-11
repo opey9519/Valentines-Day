@@ -14,16 +14,6 @@ function App() {
         backgroundColor: "#f9e1ea",
       }}
     >
-      <h1
-        style={{
-          color: "#a8dadc",
-          fontFamily: "'Press Start 2P', monospace",
-          marginBottom: "20px",
-        }}
-      >
-        💌 My Valentine Project 💌
-      </h1>
-
       <SceneManager />
     </div>
   );
