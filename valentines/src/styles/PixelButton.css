@@ -1,15 +1,38 @@
 .pixel-button {
   font-family: 'Press Start 2P', monospace;
-  font-size: 20px;
-  padding: 15px 30px;
-  margin: 5px;
-  border: 3px solid #ff4d6d;
-  background-color: #fff;
+  font-size: 14px;
+
+  padding: 16px 24px;
+  margin: 1em;
+
+  background-color: #ffffff;
   color: #ff4d6d;
+
+  border: none;
+  outline: none;
+
+  /* Pixel border effect */
+  box-shadow:
+    0 0 0 4px #ff4d6d,
+    4px 4px 0 4px #c9184a;
+
   cursor: pointer;
+
+  image-rendering: pixelated;
+  text-transform: uppercase;
+
+  transition: transform 0.05s ease;
 }
 
+/* Hover */
 .pixel-button:hover {
   background-color: #ff4d6d;
-  color: #fff;
+  color: #ffffff;
+}
+
+/* Pressed effect */
+.pixel-button:active {
+  transform: translate(4px, 4px);
+  box-shadow:
+    0 0 0 4px #ff4d6d;
 }
