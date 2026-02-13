@@ -123,7 +123,6 @@ export default function SceneManager() {
           transformOrigin: "center center",
         }}
       >
-        {/* Canvas */}
         <PixelCanvas scene={sceneRef} />
 
         {/* Question Scene Buttons */}
@@ -153,23 +152,6 @@ export default function SceneManager() {
           </>
         )}
 
-        {/* Celebration Scene Cat GIF */}
-        {sceneIndex === 2 && (
-          <img
-            src="/src/assets/miroon-cat.gif"
-            alt="Miroon Cat"
-            style={{
-              position: "absolute",
-              left: 350,
-              top: 380,
-              width: 120,
-              height: 120,
-              pointerEvents: "none",
-            }}
-          />
-        )}
-
-        {/* Heart Wipe Transition */}
         <HeartWipe
           trigger={isTransitioning}
           onComplete={handleTransitionComplete}
