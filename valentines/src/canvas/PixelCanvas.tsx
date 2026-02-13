@@ -15,12 +15,12 @@ export default function PixelCanvas({ scene }: Props) {
     let last = performance.now();
 
     function loop(now: number) {
-      const delta = now - last; // compute delta in milliseconds
+      const delta = now - last; // milliseconds
       last = now;
 
-      scene.current.update(delta); // ✅ pass delta as required by Scene type
+      scene.current.update(delta); // update scene
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-      scene.current.draw(ctx);
+      scene.current.draw(ctx); // draw scene
 
       requestAnimationFrame(loop);
     }
@@ -28,5 +28,6 @@ export default function PixelCanvas({ scene }: Props) {
     requestAnimationFrame(loop);
   }, [scene]);
 
-  return <canvas ref={canvasRef} width={800} height={300} />;
+  // Important: height must match CelebrationScene
+  return <canvas ref={canvasRef} width={800} height={600} />;
 }
