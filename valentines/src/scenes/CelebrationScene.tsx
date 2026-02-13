@@ -68,7 +68,7 @@ export default class CelebrationScene {
 
     // Pixel text
     ctx.fillStyle = "#ff85a1";
-    ctx.font = "28px 'Press Start 2P', monospace";
+    ctx.font = "3em 'Press Start 2P', monospace";
     ctx.textAlign = "center";
     ctx.fillText("I love you!", canvasWidth / 2, canvasHeight - 90);
   }

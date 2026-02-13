@@ -43,7 +43,7 @@ export default class QuestionScene implements Scene {
     ctx.save();
 
     ctx.fillStyle = "#ff4d6d";
-    ctx.font = "28px 'Press Start 2P', monospace";
+    ctx.font = "3em 'Press Start 2P', monospace";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
